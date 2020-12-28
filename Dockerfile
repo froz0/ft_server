@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/20 14:16:31 by tmatis            #+#    #+#              #
-#    Updated: 2020/12/28 17:31:35 by tmatis           ###   ########.fr        #
+#    Updated: 2020/12/28 17:32:27 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ RUN chmod 755 /var/www/* && chown -R www-data:www-data /var/www/html/
 RUN service mysql start && \
 	echo "CREATE DATABASE wordpress_site;" | mysql -u root && \
 	echo "CREATE USER 'wordpress'@'localhost' IDENTIFIED BY '1234';" | mysql -u root && \
-	echo "CREATE USER 'superuser'@'localhost' IDENTIFIED BY '1234';" | mpysql -u root && \
+	echo "CREATE USER 'superuser'@'localhost' IDENTIFIED BY '1234';" | mysql -u root && \
 	echo "GRANT ALL PRIVILEGES ON *.* TO 'superuser'@'localhost';FLUSH PRIVILEGES;" | mysql -u root && \
 	echo "GRANT ALL PRIVILEGES ON wordpress_site.* TO 'wordpress'@'localhost';FLUSH PRIVILEGES;" | mysql -u root
 CMD bash ./run.sh
